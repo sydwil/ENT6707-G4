@@ -1,0 +1,24 @@
+
+Cool stuff with hantavirus testing, but the data itself was a little hard to follow.
+
+There are some data sets that basically set out to us what to look for, which, obviously we wouldn’t follow directly, we could explore a related aspect of the data.
+
+Ball, B. 2022. Vegetation influences desert soil arthropods and their response to altered precipitation ver 1. Environmental Data Initiative. https://doi.org/10.6073/pasta/8f3c06718073765480d3b91a9f0820a7 (Accessed 2024-09-03).
+  >We could look into specific taxa responses or even specific genera of plants
+
+Rose-Person, A., N. Rafferty, and M. Spasojevic. 2024. Pollinator visitation and floral resource production in Black Sand plots, 2019. ver 3. Environmental Data Initiative. https://doi.org/10.6073/pasta/9deb9acebc7b5ed41f1bb13d6da7084c (Accessed 2024-09-03).
+  >The pollinator-visitation records may be a cool thing to delve deeper into, doesn’t seem to have been as impacted in primary analysis
+
+Hartnett, D. 2023. CGP01 Gall-insect densities on selected plant species in watersheds with different fire frequencies ver 12. Environmental Data Initiative. https://doi.org/10.6073/pasta/84a6238e21104f367115fc693584865a (Accessed 2024-09-03).
+  >Fire and it’s effects on population dynamics, but we could also look at it from plant species-level
+
+Swan, C. 2020. Baltimore Ecosystem Study: Invertebrate and Restoration Habitat Data ver 120. Environmental Data Initiative. https://doi.org/10.6073/pasta/675c0b7286358f4ba2fc991bc2af1eaa (Accessed 2024-09-03).
+  >Maybe interesting to examine the differences on an order level? If the whole project attempts to encompass restoration, maybe we could examine smaller aspects within the data set
+
+No pointed question
+
+Ellison, A. and N. Gotelli. 2023. Prey Capture by Carnivorous Plants Worldwide 1923-2007 ver 18. Environmental Data Initiative. https://doi.org/10.6073/pasta/38b5bf8887b039b3c0b81b4a317f8cbc (Accessed 2024-09-03).
+  >Carnivorous plants can be super interesting, and given that they have very different strategies and are often very distantly related it would be interesting to maybe see how their prey differs between lineages
+
+Twardochleb, L.A., E. Hiltner, M. Pyne, P. Bills, and P.L. Zarnetske. 2020. Freshwater insect occurrences and traits for the contiguous United States, 2001 - 2018 ver 5. Environmental Data Initiative. https://doi.org/10.6073/pasta/8238ea9bc15840844b3a023b6b6ed158 (Accessed 2024-09-03).
+  >In this we aren’t so much at looking over changes in time, but we could compare life history traits, abundance by genera, etc.
