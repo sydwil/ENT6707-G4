@@ -1,0 +1,89 @@
+study,sites,species,units,diptera.sum,acarina,collembola,hymenoptera.not.formicidae,thysanoptera,homoptera.sum,coleoptera,araneae,lepidoptera,hemiptera,plecoptera,formicidae,orthoptera,gastropoda.snails,gastropoda.slugs,protura,chilopoda,trichoptera,isopoda,neuroptera,diplopoda,oligochaeta,nematoda,other,odonata,psocoptera,isoptera,cyanobacteria,chlorophyta,bacillariophyta,euglenophyta,rotifera,copeopoda,rhizopoda,cladocera,insecta,scorpions,cyclopoida,harpaticoida,bosominidae,polyphemidae,sididae,daphnidae,macrothricidae,chydoridae,ostracoda,annelida,microptera,mollusca
+Zamora 1990,Dry+Humid+Wet,Pinguicula nevadense,number_of_individuals,1112,395,88,73,26,82,22,28,20,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Zamora 1990,Piornal,Pinguicula nevadense,number_of_individuals,291,44,110,9,27,34,5,10,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Zamora 1990,Tropsofera,Pinguicula nevadense,number_of_individuals,247,153,62,40,21,23,9,5,4,0,1,7,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Karlsson et al. 1987,site1+site4,Pinguicula alpina,number_per_cm^2_per_day,0.08,0.3,0.13,0.02,0,0.02,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Karlsson et al. 1987,site2,Pinguicula vilosa,number_per_cm^2_per_day,0,0.05,0.05,0,0,0.02,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Karlsson et al. 1987,site3+site4,Pinguicula vulgaris,number_per_cm^2_per_day,0.35,0.79,0.13,0.07,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Karlsson et al. 1994,NA,Pinguicula alpina,number_of_individuals,179,59,450,0,0,0,22,4,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Karlsson et al. 1994,NA,Pinguicula villosa,number_of_individuals,20,4,327,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Karlsson et al. 1994,NA,Pinguicula vulgaris,number_of_individuals,589,93,512,0,0,0,52,28,0,0,0,10,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Newell & Nastase 1998,NA,Sarracenia purpurea,number_of_individuals,4,0,0,0,0,0,3,1,1,0,0,9,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Heard 1998,NA,Sarracenia purpurea,number_of_individuals,1551,132,165,132,0,198,330,132,66,17,0,1452,2,264,99,33,10,7,7,3,2,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Zamora 1995,Sunny+Wall+Ground+Shady,Pinguicula vallisneriifolia,number_per_10cm^2_per_week,29.1,0,0,2.32,0.97,1.61,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.54,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Thum 1986,NA,Drosera rotundifolia,number_of_individuals,1041,643,1356,142,57,579,120,52,9,92,0,58,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Thum 1986,NA,Drosera intermedia,number_of_individuals,2975,831,354,76,15,324,96,102,2,106,0,37,6,0,0,0,0,0,0,0,0,0,0,0,20,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Cresswell 1993,NA,Sarracenia purpurea,number_of_individuals,72,11,3,7,0,16,26,11,5,1,0,31,4,0,0,0,0,0,0,2,1,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Alcalá and Domínguez 2003,T1+T2,Pinguicula moranensis,sum_of_percentages,192,0,0.3,0,0,0,0,0,1.3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Alcalá and Domínguez 2003,LC+VAL+MOL,Pinguicula moranensis,sum_of_percentages,210.4,15.8,21.1,5.2,0,0,2.9,0.9,23.6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6.9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Watson et al. 1982,Burned+Unburned,Drosera erythrorhiza,number_of_individuals,13,10,10826,5,13,8,5,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,26,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Dixon et al. 1980,NA,Drosera erythrorhiza,number_of_individuals,199,0,774,13,0,28,15,12,1,14,0,30,2,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Verbeek and Boasson 1993,Fitzgerald+Murdoch,Drosera menziesii,number_of_individuals,379,3,43,43,24,41,6,0,1,5,0,1,0,0,0,0,0,0,0,0,0,0,0,19,0,6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Verbeek and Boasson 1993,Fitzgerald,Drosera drummondi,number_of_individuals,48,1,45,7,4,21,0,1,1,12,0,8,0,0,0,0,0,0,0,1,0,0,0,5,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Verbeek and Boasson 1993,Fitzgerald,Drosera glandligera,number_of_individuals,35,24,133,12,9,38,22,5,3,13,0,17,0,0,0,0,0,0,0,0,0,0,0,27,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Verbeek and Boasson 1993,Fitzgerald,Drosera paleacea,number_of_individuals,18,7,89,0,2,28,0,0,0,9,0,2,0,0,0,0,0,0,0,0,0,0,0,23,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Verbeek and Boasson 1993,Fitzgerald,Drosera erythrorhiza,number_of_individuals,82,5,1399,12,8,45,5,3,2,7,0,21,1,0,0,0,0,0,0,0,0,0,0,7,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Verbeek and Boasson 1993,Murdoch,Drosera pallida,number_of_individuals,128,6,6,2,22,7,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,6,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Verbeek and Boasson 1993,Murdoch,Drosera stolonifera,number_of_individuals,310,3,25,19,38,11,2,3,4,1,0,1,0,0,0,0,0,0,0,1,0,0,0,13,0,7,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Moran et al. 1999,NA,Nepenthes rafflesiana,percentage,20.9,0,0,6,10,0,5.9,0.8,3.9,1.1,0,50.5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Moran et al. 2000,NA,Nepenthese gracilis,percentage,9.6,0,0,4.2,0,0,11.7,0.4,1.1,2.3,0,67.9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Moran 1996,UpperPitchers,Nepenthes rafflesiana ,percentage,19.1,0,0,3.6,3.4,0,3.6,0,2.7,0,0,64.3,0,0,0,0,0,0,0,0,0,0,0,3.3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Moran 1996,LowerPitchers,Nepenthes rafflesiana ,percentage,0,0,0,0,0,0,0,0,0,0,0,88.7,0,0,0,0,0,0,0,0,0,0,0,4,0,0,7.3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Adler and Malmqvist 2004,NA,Pinguicula vulgaris,number_of_individuals,872,0,18,5,0,0,1,3,1,8,1,2,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Judd 1959,OldLeaves+NewLeaves,Sarracenia purpurea,number_of_individuals,690,0,1,21,0,40,155,24,19,15,0,97,27,0,0,0,0,0,0,1,3,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Judd 1959,NA,Drosera intermedia,number_of_individuals,30,0,0,0,0,7,5,0,0,4,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Judd 1959,NA,Drosera rotundifolia,number_of_individuals,6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Green et al. 1979,NA,Triphyophyllum peltatum,number_of_individuals,20,0,0,5,0,0,60,4,10,8,0,20,13,0,0,0,0,0,0,0,0,0,0,0,0,0,25,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Williams 1980,1980census,Dionaea muscipula,percentage,4,0,0,0,0,0,10,39,0,0,0,30,10,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Jones 1923,1923census,Dionaea muscipula,percentage,18,0,0,0,0,0,18,18,4,8,0,20,14,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+van Achterberg 1973,NA,Drosera intermedia,number_of_individuals,412,1,7,8,0,3,4,2,0,1,0,1,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+van Achterberg 1973,NA,Drosera rotundifolia,number_of_individuals,137,4,1,17,4,18,38,7,0,4,0,6,1,0,0,0,0,0,0,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+van Achterberg 1973,NA,Drosera anglica,number_of_individuals,49,0,0,2,0,4,16,2,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Gordon and Pacheco 2007,NA,Utricularia inflata,number_of_individuals,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,0,0,0,0,3,4,8,0,1,3,2,8,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Gordon and Pacheco 2007,NA,Utricularia gibba,number_of_individuals,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,0,0,0,0,3,10,8,2,12,4,3,5,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Erber 1979,NA,Nepenthes reinwardtiana,number_of_individuals,43,37,79,31,3,0,13,9,0,33,0,1038,2,0,0,0,0,0,0,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
+Harms 1999,NA,Utricularia minor,number_of_individuals,47,75,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,140,1,0,0,1,16,108,786,252,10,0,0
+Harms 1999,NA,Utricularia vulgaris,number_of_individuals,99,78,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,86,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,442,6,0,8,78,53,426,418,11,19,0,0
+Harms 1999,NA,Utricularia intermedia,number_of_individuals,65,89,0,0,0,0,29,0,0,0,0,0,0,0,0,0,0,0,8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,444,1,0,0,0,5,62,304,106,13,0,1
+Wray and Brimley 1943,Raleigh,Sarracenia flava,number_of_individuals,389,0,0,265,0,176,1509,188,290,85,0,2338,25,0,0,0,0,0,0,5,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,20,2
+Wray and Brimley 1943,Fayetville,Sarracenia flava,number_of_individuals,262,0,0,121,1,114,909,33,81,138,0,100,13,0,0,0,0,6,0,12,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8,0
+Wray and Brimley 1943,Wilmington,Sarracenia flava,number_of_individuals,14,0,0,24,0,2,150,6,14,6,0,1000,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0
+Wray and Brimley 1943,Orton,Sarracenia flava,number_of_individuals,19,0,0,1,0,26,121,0,6,0,0,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Wray and Brimley 1943,Council,Sarracenia flava,number_of_individuals,22,0,0,38,0,30,147,15,33,33,0,1001,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Folkerts 1992,Harrison,Saracenia alata,percentage,14.35,1.32,0,1.35,0,1.69,5.98,0.34,3.08,3.34,0,58.1,0.14,0,0,0,0,1.04,0,0.09,0,0,0,0,0,0.04,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Folkerts 1992,Thomas,Sarracenia flava,percentage,29.9,0,0,3.07,0,3.7,25.6,0.4,3.6,2.3,0,31.03,0.1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.3,0,0,0,0,0,0,0,0,0,0,0,0,0
+Folkerts 1992,Okalosa,Sarracenia flava,percentage,2,0,0,4,0,1,6,0,2,0,0,82,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Folkerts 1992,Okalosa,Sarracenia leucophylla,percentage,32,0,0,24,0,0.2,10,0,6,1,0,24,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Folkerts 1992,Okalosa,Sarracenia rubra,percentage,10,0,0,9,0,0,2,0,2,1,0,75,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Folkerts 1992,Okalosa,Sarracenia purpurea,percentage,0.2,0,0,1,0,0,0,2,2,0.2,0,87,2,0,0,0,0,0,0,0,0,0,0,0.2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Folkerts 1992,Okalosa,Sarracenia psittacina,percentage,2,0,0,1,0,0,0,2,2,1,0,33,0,0,0,0,0,0,0,0,0,0,0,62,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Folkerts 1992,SantaRosa,Sarracenia flava,percentage,2,0,0,5,0,0,2,0,0,2,0,93,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Folkerts 1992,SantaRosa,Sarracenia psittacina,percentage,0,0,0,0,0,0,6,0,4,0,0,92,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Folkerts 1992,Turner,Sarracenia flava,percentage,26,0,0,0.5,0,6,28,2,16,0,0,23.5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Folkerts 1992,Turner,Sarracenia minor,percentage,2,0,0,0.5,0,0,0,0,0,0,0,97.5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Folkerts 1992,Turner,Sarracenia psittacina,percentage,3,0,0,0.25,0,2,10,18,2,0,0,41.75,0,0,0,0,0,0,0,0,0,0,0,20,0,0,0,0,0,0,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0
+Folkerts 1992,Brunswick,Sarracenia flava,percentage,4,0,0,1,0,2,6,0,1,0,0,89,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Folkerts 1992,Brunswick,Sarracenia purpurea,percentage,3,0,0,1,0,0,4,2,1,0,0,89,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Folkerts 1992,Brunswick,Sarracenia rubra,percentage,20,0,0,7,0,0,0,2,0.2,1,0,67,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Green and Horner 2007,NA,Sarracenia alata,percentage,7.5,0,0,9.4,0,0.9,5.6,0,1.9,0.9,0,73.7,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Porch 1992,Baldwin,Drosera tracyi,percentage,57.05,1.3,1.7,8.99,12,13.4,0.63,1,0.4,0.2,0,0.5,0.01,0,0,0,0,0.2,0,0,0,0,0,2.7,0,0.02,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Porch 1992,Baldwin,Drosera intermedia,percentage,42.8,3.6,21.6,5.9,0.7,6.5,0.9,3,0.5,0.9,0,1.8,0.2,0,0,0,0,0.2,0,0,0,0,0,9.3,0.2,0.5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Porch 1992,Baldwin,Drosera capillaris,percentage,37.9,8.5,29.9,1.7,0.7,6.2,0.5,0.5,0.8,0,0,4.7,0,0,0,0,0,0,0,0,0,0,0,7.7,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Porch 1992,SantaRosa,Drosera intermedia,percentage,51.5,2.2,8.6,7.8,1.7,9.5,1.1,1.3,0.5,1.3,0,8,0,0,0,0,0,0.2,0,0,0,0,0,4.6,0.4,0.2,0,0,0,0,0,0,0.8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Porch 1992,SantaRosa,Drosera capillaris,percentage,23.4,8.2,13.3,4.8,0.9,7.9,0,0,0.2,0.9,0,29,0.2,0,0,0,0,0.5,0,0,0,0,0.2,9.6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Porch 1992,Watson,Drosera tracyi,percentage,73.06,0.6,0.3,7.07,8.6,7.59,0.34,0.5,0.18,0.07,0,0.16,0.06,0,0,0,0,0.1,0,0,0,0,0,1.5,0,0.03,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Porch 1992,Watson,Drosera capillaris,percentage,31.8,7.1,26.8,3.7,0.5,8.3,0.1,2,1.3,0.9,0,10,0,0,0,0,0,0,0,0,0,0,0.4,6.6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Antor and Garcia 1994,Plan,Pinguicula longifolia,number_of_individuals,205,1,2,38,0,30,1,2,5,2,0,13,0,0,0,0,0,0,1,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Antor and Garcia 1994,Anisclo 1990,Pinguicula longifolia,number_of_individuals,252,0,0,22,2,13,5,0,6,1,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Antor and Garcia 1994,Anisclo 1991,Pinguicula longifolia,number_of_individuals,369,0,0,50,14,35,6,0,8,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Kato et al. 1993,Sumatra,Nepenthes sp. A,mean_number_per_pitcher,0,0,0,0,0,0,0,0,0,0,0,234.57,0,0,0,0,0,0,0,0,0,0,0,0.14,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Kato et al. 1993,Sumatra,Nepenthes alata,mean_number_per_pitcher,0.55,0,0,1.04,0.04,0,0.3,0.04,0.26,0,0,105.34,0.13,0,0,0,0,0,0.09,0.04,0,0,0,0.26,0,0,0.08,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Kato et al. 1993,Sumatra,Nepenthes albomarginata,mean_number_per_pitcher,1.75,0,0,0,0,0.13,0,0,0,0,0,29.88,0.13,0,0,0,0,0,0,0,0,0,0,0,0,0.13,41,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Kato et al. 1993,Sumatra,Nepenthes ampullaria,mean_number_per_pitcher,0.19,0,0,0.28,0,0.05,0.14,0,0.18,0,0,4.27,0,0,0,0,0,0,0.09,0,0,0,0,0.36,0,0,0.41,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.05
+Kato et al. 1993,Sumatra,Nepenthes bongso,mean_number_per_pitcher,22.2,0,0,4.62,0,0.67,0.33,0.24,0.14,0,0,3.42,0.14,0,0,0,0,0.29,0,0.05,0.19,0,0,0.52,0,0,2.15,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Kato et al. 1993,Sumatra,Nepenthes gracilis,mean_number_per_pitcher,0.05,0,0,0.44,0,0.05,0.14,0.1,0,0,0,19.42,0.05,0,0,0,0,0,0,0,0,0,0,0.05,0,0.05,0.14,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Kato et al. 1993,Sumatra,Nepenthes mirabilis,mean_number_per_pitcher,0.4,0,0,1.4,0,0.4,1,0,0,0.2,0,36.8,0.4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Kato et al. 1993,Sumatra,Nepenthes reinwardtiana,mean_number_per_pitcher,0.89,0,0,0.89,0,0.11,0.22,0,0,0.22,0,39.78,1.55,0,0,0,0,0,0,0,0.11,0,0,0.11,0,0.11,0.11,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Kato et al. 1993,Sumatra,Nepenthes sp. B,mean_number_per_pitcher,0.21,0,0,0.12,0,0.04,0.58,0,0.04,0.58,0,22.92,0.42,0,0,0,0,0,0,0,0.04,0,0,0.41,0,0,0.08,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.05
+Kato et al. 1993,Sumatra,Neentes spathulata,mean_number_per_pitcher,11.78,0,0,2.3,0,0.68,1.21,0.32,0.32,0.16,0,24.79,1.53,0,0,0,0,0,0.11,0,0,0,0,1.42,0,0,0.05,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Givnish et al. 1984,NA,Brocchinia reducta,percentage,4.4,0,0.08,1.7,0,1.1,2.5,0,0,0.3,0,89.9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
