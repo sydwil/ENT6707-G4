@@ -94,7 +94,7 @@ summarise(mean_diptera = round(mean(diptera.sum),2),
 
 
 ### Total count studies ########################################################
-carnivore_count_means <- carnivore_not_percentage %>% 
+carnivore_count_means <- carnivore_number_indivs %>% 
   summarise(mean_diptera = round(mean(diptera.sum),2),
             mean_acarina = round(mean(acarina),2),
             mean_hymenoptera.not.formicidae = round(mean(hymenoptera.not.formicidae),2),
@@ -108,7 +108,7 @@ carnivore_count_means <- carnivore_not_percentage %>%
             mean_formicidae = round(mean(formicidae),2),
             mean_orthoptera = round(mean(orthoptera),2))
 
-carnivore_count_SE <- carnivore_not_percentage %>%
+carnivore_count_SE <- carnivore_number_indivs %>%
   summarise(SE_diptera = round(std.error(diptera.sum),2),
             SE_acarina = round(std.error(acarina),2),
             SE_hymenoptera.not.formicidae = round(std.error(hymenoptera.not.formicidae),2),
@@ -146,7 +146,7 @@ summary_stats_count$SE <- test4$SE
 
 
 #### Group by predation type (for analyses) ####################################
-carnivore_count_grouped <- carnivore_not_percentage %>% group_by(predation_method) %>%
+carnivore_count_grouped <- carnivore_number_indivs %>% group_by(predation_method) %>%
   summarise(mean_diptera = round(mean(diptera.sum),2),
             mean_acarina = round(mean(acarina),2),
             mean_hymenoptera.not.formicidae = round(mean(hymenoptera.not.formicidae),2),
@@ -183,11 +183,11 @@ carnivore_count_grouped <- carnivore_not_percentage %>% group_by(predation_metho
 library(writexl)
 
 summary_stats_count$study_measurements <- "counts"
-summary_stats_count$study_observations <- nrow(carnivore_not_percentage)
+summary_stats_count$study_observations <- nrow(carnivore_number_indivs)
 
 summary_stats_proportion$study_measurements <- "proportions"
 summary_stats_proportion$study_observations <- nrow(carnivore_percentage)
 
 summary_stats <- rbind(summary_stats_count, summary_stats_proportion)
 
-write_xlsx(summary_stats, "G4_summary_stats.xlsx")
+write_xlsx(summary_stats, "G4_summary_stats_fixed.xlsx")
