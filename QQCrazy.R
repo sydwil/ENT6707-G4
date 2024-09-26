@@ -14,9 +14,9 @@ altCrnCtGrpNoSE<- carnivore_count_grouped %>% select(-(SE_diptera:n_predation_me
 CrnCtGrpNoSE<- as.data.frame(t(altCrnCtGrpNoSE))
 CrnCtGrpNoSE<- CrnCtGrpNoSE %>% `colnames<-`(c("Active_trapping", "Pitchers", "Sticky_Traps"))
 CrnCtGrpNoSE<- CrnCtGrpNoSE %>% filter(!row_number() %in% c(1))
-CrnCtGrpNoSE<- CrnCtGrpNoSe %>% mutate(Active_trapping = gsub(" ","", Active_trapping))
-CrnCtGrpNoSE<- CrnCtGrpNoSe %>% mutate(Pitchers = gsub(" ","", Pitchers))
-CrnCtGrpNoSE<- CrnCtGrpNoSe %>% mutate(Sticky_Traps = gsub(" ","", Sticky_Traps))
+CrnCtGrpNoSE<- CrnCtGrpNoSE %>% mutate(Active_trapping = gsub(" ","", Active_trapping))
+CrnCtGrpNoSE<- CrnCtGrpNoSE %>% mutate(Pitchers = gsub(" ","", Pitchers))
+CrnCtGrpNoSE<- CrnCtGrpNoSE %>% mutate(Sticky_Traps = gsub(" ","", Sticky_Traps))
 
 hist(altCrnCtGrpNoSE$active_trapping)
 
@@ -38,3 +38,9 @@ qq_PrpActive <- qqnorm(CrnPrpGrpNoSE$Active_trapping)
 qq_PrpPitcher <- qqnorm(CrnPrpGrpNoSE$Pitchers)
 qq_PrpSticky <- qqnorm(CrnPrpGrpNoSE$Sticky_Traps)
 
+
+# found this after a quick google, but this would be like fitting a qqnorm plot
+# but for comparing against a Poisson distribution
+library('fitdistrplus')
+plot(fitdist(carnivore_number_indivs$diptera.sum,"pois"))
+plot(fitdist(carnivore_number_indivs$coleoptera,"pois"))
