@@ -1,5 +1,7 @@
 library(lme4)
 
+############################################################################################################
+##DATA PREPERATION CODE BLOCK###
 
 ### creates a new dataframe that has been converted to proportions based off summing up the total individuals 
 ### captured by genus in each study 
@@ -14,6 +16,18 @@ Carnivore_CountToPercent <- Carnivore_CountToPercent %>% mutate(total = sum(c_ac
   mutate(across(diptera.sum:mollusca, ~ . / total))
 
 
+###This creates a new column in the dataframe that shows the richness of prey capture 
+###per genus per study 
+###This should also work when applied to any other dataframe with the count data, like "carnivore", 
+###but i haven't tested that yet 
+
+Carnivore_CountToPercent  <- Carnivore_CountToPercent %>% 
+  rowwise()%>%
+  mutate(
+  Richness = length(which(c_across(diptera.sum:mollusca) > 0)))
+
+rlang::last_trace()
+
 #BEWARE, all this loop does is pulverize your dataframe, i'm keeping it in case I ever need it again 
 
 x <- 1
@@ -25,7 +39,7 @@ Carnivore_CountToPercent <- while (x>=5){
     break
   }
 }
-#####
+####################################################################################################################
 
 
 
@@ -33,8 +47,10 @@ Carnivore_CountToPercent <- while (x>=5){
 
 
 
-
-
+#########################################################################################################################
+###DATA ANALYSIS CODE BLOCK
+###Requires Carnivore_CountTOPercent to have been transformed to be proportions & to have richness info to work 
+###Capture data 
 ggplot(data=Carnivore_CountToPercent, aes(x=diptera.sum, color = predation_method))+
   geom_histogram(fill="white")
 
@@ -60,4 +76,26 @@ testmod3 <- lm(hymenoptera.not.formicidae~predation_method, data = Carnivore_Cou
 anova(testmod3)
 summary(testmod3)
 plot (testmod3)
+
+
+### Richness data testing 
+ggplot(data=Carnivore_CountToPercent, aes(x=Richness, color = predation_method))+
+  geom_histogram(fill="white")
+
+testmod1R <- lm(Richness~predation_method, data = Carnivore_CountToPercent)
+anova(testmod1R)
+summary(testmod1R)
+plot(testmod1R)
+
+
+ggplot(data=Carnivore_CountToPercent, aes(x=Richness, color = genus))+
+  geom_histogram(fill="white")
+
+testmod2R <- lm(Richness~genus, data = Carnivore_CountToPercent)
+anova(testmod2R)
+summary(testmod2R)
+plot(testmod2R)
+
+
+
 
