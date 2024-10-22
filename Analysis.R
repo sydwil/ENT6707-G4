@@ -73,7 +73,7 @@ anova(homomodel)
 homodelem <- emmeans(homomodel, ~predation_method)
 pairs(homodelem)
 
-### LMER Models ################################################################
+### GLMER Models ###############################################################
 
 #Just follow the "Load_data" code to get everything needed for running this
 library(lme4)
@@ -278,14 +278,14 @@ carnie_count_less_graph <- testing11
 carnie_count_less_graph$SE <- testing21$SE
 
 
-ggplot(carnie_count_less_graph)+
+ggplot(carnie_count_less_graph, aes(x = predation_method, y = mean))+
   geom_bar(aes(x = predation_method, y = mean, fill = arthropod_group), 
            color = "black",
            stat = "identity", position = position_dodge())+
-  geom_errorbar(aes(x = predation_method, ymin = mean - SE, ymax = mean + SE),
+  geom_errorbar(aes(ymin = mean - SE, ymax = mean + SE),
                 position = position_dodge(0.5),
                 width = 0.1)+
-  theme_bw()
+  theme(legend.position = "none")
 
 head(carnie_count_less_graph)
 
