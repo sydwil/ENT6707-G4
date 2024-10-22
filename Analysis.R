@@ -278,16 +278,23 @@ carnie_count_less_graph <- testing11
 carnie_count_less_graph$SE <- testing21$SE
 
 
-ggplot(carnie_count_less_graph, aes(x = predation_method, y = mean))+
-  geom_bar(aes(x = predation_method, y = mean, fill = arthropod_group), 
-           color = "black",
-           stat = "identity", position = position_dodge())+
+ggplot(carnie_count_less_graph, aes(x = predation_method, y = mean, fill = arthropod_group)) +
+  geom_bar(stat = "identity", position = "dodge") + 
   geom_errorbar(aes(ymin = mean - SE, ymax = mean + SE),
-                position = position_dodge(0.5),
-                width = 0.1)+
-  theme(legend.position = "none")
+                position = "dodge") + theme_bw()
 
-head(carnie_count_less_graph)
+
+#broken 
+# ggplot(carnie_count_less_graph, aes(x = predation_method, y = mean))+
+#   geom_bar(aes(x = predation_method, y = mean, fill = arthropod_group), 
+#            color = "black",
+#            stat = "identity", position = position_dodge())+
+#   geom_errorbar(aes(ymin = mean - SE, ymax = mean + SE),
+#                 position = position_dodge(0.5),
+#                 width = 0.1)+
+#   theme(legend.position = "none")
+# 
+# head(carnie_count_less_graph)
 
 
 
