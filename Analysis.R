@@ -77,6 +77,7 @@ pairs(homodelem)
 
 #Just follow the "Load_data" code to get everything needed for running this
 library(lme4)
+library(car)
 
 #Let's look at the data first
 carnie_count <-  carnivore %>% filter(units == "number_of_individuals")
@@ -101,29 +102,71 @@ testing <- carnie_count %>%
 
 # I'm going to plot each of the major arthropod groups and color by predation
 ggplot(testing)+
-  geom_bar(aes(x = predation_method, y = count, fill = "arthropod_group"), 
-               stat = "identity", position = "dodge")+
+  geom_jitter(aes(x = predation_method, y = count,  col = arthropod_group))+
   theme_bw()
 
-ggplot(testing)+
-  geom_point(aes(x = predation_method, y = count,  col = "arthropod_group"))+
+# I want to see what the data looks like without those two outliers way up high
+testing_no_outliers <- filter(testing, count < 2000)
+
+ggplot(testing_no_outliers)+
+  geom_jitter(aes(x = predation_method, y = count,  col = arthropod_group))+
+  theme_bw()
+
+# let's do it again with non-zeros
+testing_no_zeros <- filter(testing, count != 0)
+
+ggplot(testing_no_zeros)+
+  geom_jitter(aes(x = predation_method, y = count,  col = arthropod_group))+
   theme_bw()
 
 
-ggplot(dat.g, aes(type, value)) + 
-  geom_bar(aes(fill = country), stat = "identity", position = "dodge")
+# fit generalized linear mixed effects model (allows for random intercepts and
+# no-normal distribution) (we assume a Poisson distribution)
+str(carnie_count)
+
+#### Fit diptera ###############################################################
+fit_diptera <- glmer(diptera.sum ~ predation_method + (1|study) + (1|genus), 
+                     family = poisson(link="log"), 
+                     data = carnie_count)
+summary(fit_diptera)
+Anova(fit_diptera, type="III")
+emmeans(fit_diptera, pairwise ~ predation_method)
+
+#### Fit coleoptera ############################################################
+fit_coleoptera <- glmer(coleoptera ~ predation_method + (1|study) + (1|genus), 
+                     family = poisson(link="log"), 
+                     data = carnie_count)
+summary(fit_coleoptera)
+Anova(fit_coleoptera, type="III")
+emmeans(fit_coleoptera, pairwise ~ predation_method)
+
+#### Fit formicidae ############################################################
+summary(carnie_count$formicidae)
+carnie_count$formicidae
+
+fit_formicidae <- glmer(formicidae ~ predation_method + (1|study) + (1|genus), 
+                        family = poisson(link="log"), 
+                        data = carnie_count)
+summary(fit_formicidae)
+Anova(fit_formicidae, type="III")
+emmeans(fit_formicidae, pairwise ~ predation_method)
+
+#### Fit hemiptera ############################################################
+fit_hemiptera <- glmer(hemiptera ~ predation_method + (1|study) + (1|genus), 
+                        family = poisson(link="log"), 
+                        data = carnie_count)
+summary(fit_hemiptera)
+Anova(fit_hemiptera, type="III")
+emmeans(fit_hemiptera, pairwise ~ predation_method)
 
 
-
-
-
-#### Try to get a barplot #####################################################
+### Try to get a barplot #####################################################
 carnie_count_means <- carnie_count %>% group_by(predation_method) %>%
   summarise(mean_diptera = round(mean(diptera.sum),2),
             mean_acarina = round(mean(acarina),2),
             mean_hymenoptera.not.formicidae = round(mean(hymenoptera.not.formicidae),2),
             mean_thysanoptera = round(mean(thysanoptera),2),
-            mean_homoptera.sum = round(mean(homoptera.sum),2),
+            mean_homoptera = round(mean(homoptera.sum),2),
             mean_coleoptera = round(mean(coleoptera),2),
             mean_araneae = round(mean(araneae),2),
             mean_lepidoptera = round(mean(lepidoptera),2),
@@ -138,7 +181,7 @@ carnie_count_SE <- carnie_count %>% group_by(predation_method) %>%
             SE_acarina = round(std.error(acarina),2),
             SE_hymenoptera.not.formicidae = round(std.error(hymenoptera.not.formicidae),2),
             SE_thysanoptera = round(std.error(thysanoptera),2),
-            SE_homoptera.sum = round(std.error(homoptera.sum),2),
+            SE_homoptera = round(std.error(homoptera.sum),2),
             SE_coleoptera = round(std.error(coleoptera),2),
             SE_araneae = round(std.error(araneae),2),
             SE_lepidoptera = round(std.error(lepidoptera),2),
@@ -179,13 +222,72 @@ ggplot(carnie_count_graph)+
   theme_bw()
 
 
+# I'm going to repeat this, but eliminate some where it really looks like we
+# have hardly any observations, and maybe let's just stick to Insecta?
+
+carnie_count_less_means <- carnie_count %>% group_by(predation_method) %>%
+  summarise(mean_diptera = round(mean(diptera.sum),2),
+            #mean_acarina = round(mean(acarina),2),
+            mean_hymenoptera.not.formicidae = round(mean(hymenoptera.not.formicidae),2),
+            #mean_thysanoptera = round(mean(thysanoptera),2),
+            mean_homoptera = round(mean(homoptera.sum),2),
+            mean_coleoptera = round(mean(coleoptera),2),
+            #mean_araneae = round(mean(araneae),2),
+            mean_lepidoptera = round(mean(lepidoptera),2),
+            mean_hemiptera = round(mean(hemiptera),2),
+            #mean_plecoptera = round(mean(plecoptera),2),
+            mean_formicidae = round(mean(formicidae),2))
+            #mean_orthoptera = round(mean(orthoptera),2))
 
 
+carnie_count_less_SE <- carnie_count %>% group_by(predation_method) %>%
+  summarise(SE_diptera = round(std.error(diptera.sum),2),
+            #SE_acarina = round(std.error(acarina),2),
+            SE_hymenoptera.not.formicidae = round(std.error(hymenoptera.not.formicidae),2),
+            #SE_thysanoptera = round(std.error(thysanoptera),2),
+            SE_homoptera = round(std.error(homoptera.sum),2),
+            SE_coleoptera = round(std.error(coleoptera),2),
+            #SE_araneae = round(std.error(araneae),2),
+            SE_lepidoptera = round(std.error(lepidoptera),2),
+            SE_hemiptera = round(std.error(hemiptera),2),
+            #SE_plecoptera = round(std.error(plecoptera),2),
+            SE_formicidae = round(std.error(formicidae),2))
+            #SE_orthoptera = round(std.error(orthoptera),2))
+
+str(as.data.frame(carnie_count_less_SE))
+str(as.data.frame(carnie_count_less_means))
 
 
+testing11 <- carnie_count_less_means %>%
+  pivot_longer(
+    cols = starts_with("mean"),
+    names_to = "arthropod_group",
+    names_prefix = "mean_",
+    values_to = "mean") %>%
+  as.data.frame()
+
+testing21 <- carnie_count_less_SE %>%
+  pivot_longer(
+    cols = starts_with("SE"),
+    names_to = "arthropod_group",
+    names_prefix = "SE_",
+    values_to = "SE") %>% 
+  as.data.frame()
+
+carnie_count_less_graph <- testing11
+carnie_count_less_graph$SE <- testing21$SE
 
 
+ggplot(carnie_count_less_graph)+
+  geom_bar(aes(x = predation_method, y = mean, fill = arthropod_group), 
+           color = "black",
+           stat = "identity", position = position_dodge())+
+  geom_errorbar(aes(x = predation_method, ymin = mean - SE, ymax = mean + SE),
+                position = position_dodge(0.5),
+                width = 0.1)+
+  theme_bw()
 
+head(carnie_count_less_graph)
 
 
 
