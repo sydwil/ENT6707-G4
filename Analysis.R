@@ -133,26 +133,48 @@ Anova(fit_diptera, type="III")
 emmeans(fit_diptera, pairwise ~ predation_method)
 
 #### Fit coleoptera ############################################################
-fit_coleoptera <- glmer(coleoptera ~ predation_method + (1|study) + (1|genus), 
+fit_coleoptera <- glmer(coleoptera ~ predation_method + (1|genus), 
                      family = poisson(link="log"), 
                      data = carnie_count)
 summary(fit_coleoptera)
 Anova(fit_coleoptera, type="III")
 emmeans(fit_coleoptera, pairwise ~ predation_method)
 
+ranef(fit_coleoptera)
+
 #### Fit formicidae ############################################################
 summary(carnie_count$formicidae)
-carnie_count$formicidae
 
-fit_formicidae <- glmer(formicidae ~ predation_method + (1|study) + (1|genus), 
+
+fit_formicidae <- glmer(formicidae ~ predation_method + (1|genus), 
                         family = poisson(link="log"), 
                         data = carnie_count)
+
+#weird error... wanna look at the genera involved and the data
+carnie_count$formicidae
+formicidae_noZeros <- filter(carnie_count, formicidae != 0)
+unique(formicidae_noZeros$predation_method)
+# Looks like maybe it's because there are no counts of formicidae in active trapping?
+fit_formicidae_noZeros <- glmer(formicidae ~ predation_method + (1|genus), 
+                        family = poisson(link="log"), 
+                        data = formicidae_noZeros)
+summary(fit_formicidae_noZeros)
+Anova(fit_formicidae_noZeros, type="III")
+emmeans(fit_formicidae_noZeros, pairwise ~ predation_method)
+
+
+
+
+fit_formicidae <- glm(formicidae ~ predation_method, 
+                        family = poisson(link="log"), 
+                        data = carnie_count)
+
 summary(fit_formicidae)
 Anova(fit_formicidae, type="III")
 emmeans(fit_formicidae, pairwise ~ predation_method)
 
 #### Fit hemiptera ############################################################
-fit_hemiptera <- glmer(hemiptera ~ predation_method + (1|study) + (1|genus), 
+fit_hemiptera <- glmer(hemiptera ~ predation_method + (1|genus), 
                         family = poisson(link="log"), 
                         data = carnie_count)
 summary(fit_hemiptera)
