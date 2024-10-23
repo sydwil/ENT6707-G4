@@ -125,6 +125,8 @@ ggplot(testing_no_zeros)+
 str(carnie_count)
 
 #### Fit diptera ###############################################################
+install.packages("Rcpp")
+library(Rcpp)
 fit_diptera <- glmer(diptera.sum ~ predation_method + (1|study) + (1|genus), 
                      family = poisson(link="log"), 
                      data = carnie_count)
@@ -181,7 +183,7 @@ summary(fit_hemiptera)
 Anova(fit_hemiptera, type="III")
 emmeans(fit_hemiptera, pairwise ~ predation_method)
 
-
+library(plotrix)
 ### Try to get a barplot #####################################################
 carnie_count_means <- carnie_count %>% group_by(predation_method) %>%
   summarise(mean_diptera = round(mean(diptera.sum),2),
@@ -212,8 +214,13 @@ carnie_count_SE <- carnie_count %>% group_by(predation_method) %>%
             SE_formicidae = round(std.error(formicidae),2),
             SE_orthoptera = round(std.error(orthoptera),2))
 
+
+
+
 str(as.data.frame(carnie_count_SE))
 str(as.data.frame(carnie_count_means))
+
+
 
 
 testing1 <- carnie_count_means %>%
@@ -242,6 +249,7 @@ ggplot(carnie_count_graph)+
   geom_errorbar(aes(x = predation_method, ymin = mean - SE, ymax = mean + SE),
                 width = 0.2, position = position_dodge(12))+
   theme_bw()
+
 
 
 # I'm going to repeat this, but eliminate some where it really looks like we
@@ -317,6 +325,33 @@ ggplot(carnie_count_less_graph, aes(x = predation_method, y = mean, fill = arthr
 #   theme(legend.position = "none")
 # 
 # head(carnie_count_less_graph)
+
+
+##############
+############## average richness 
+
+#adds richness colum to carnie_count
+Richness <- carnie_count %>%
+  rowwise()%>%
+  mutate(
+    Richness = length(which(c_across(diptera.sum:mollusca) > 0)))
+Richness_means <- Richness %>% group_by(predation_method)%>%
+  summarise(MeanRichness = round(mean(Richness),2))
+Richness_SE <- Richness %>% group_by(predation_method)%>%
+  summarise(SERichness = round(std.error(Richness),2))
+
+str(as.data.frame(Richness_SE))
+str(as.data.frame(Richness_means))
+
+Richness_Graph <- Richness_means
+Richness_Graph$SE <- Richness_SE$SERichness
+
+ggplot(Richness_Graph)+
+  geom_bar(aes(x = predation_method, y = MeanRichness, fill = predation_method), 
+           stat = "identity", position = "dodge")+
+  geom_errorbar(aes(x = predation_method, ymin = MeanRichness - SE, ymax = MeanRichness + SE),
+                width = 0.2, position = position_dodge(12))+
+  theme_bw()
 
 
 
