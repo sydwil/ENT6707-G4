@@ -1,0 +1,65 @@
+#load librarys 
+library(tidyr)
+library(tidyverse)
+library(dplyr)
+library(ggplot2)
+library(stringr)
+#load in dataset 
+carnivore <- read.csv(file = "C:/Users/morga/Downloads/G4_hf111-01-prey.csv", header = TRUE, 
+                      na.strings = "NA")
+#make new genus category and fix typos 
+carnivore <- carnivore %>% mutate(species = str_replace(species, " ", "_"))
+carnivore$genus <- gsub("_.*","",  x = carnivore$species)
+carnivore$genus
+carnivore <- carnivore %>% 
+  mutate(genus = replace(genus, genus == "Nepenthese", "Nepenthes"))
+carnivore <- carnivore %>% 
+  mutate(genus = replace(genus, genus == "Neentes", "Nepenthes"))
+carnivore <- carnivore %>% 
+  mutate(genus = replace(genus, genus == "Saracenia", "Sarracenia"))
+
+#make new predation method column 
+carnivore$predation_method <- NA
+
+carnivore <- carnivore %>% 
+  mutate(predation_method = replace(predation_method, 
+                                    genus == "Pinguicula" |
+                                      genus == "Drosera", 
+                                    "sticky_traps"))
+
+carnivore <- carnivore %>% 
+  mutate(predation_method = replace(predation_method, 
+                                    genus == "Nepenthes" |
+                                      genus == "Brocchinia" |
+                                      genus == "Sarracenia" |
+                                      genus == "Triphyophyllum", 
+                                    "pitchers"))
+
+carnivore <- carnivore %>% 
+  mutate(predation_method = replace(predation_method, 
+                                    genus == "Utricularia" |
+                                      genus == "Dionaea", 
+                                    "active_trapping"))
+
+carnivore$predation_method
+
+#filter out all those without number data 
+carnivore_number <- carnivore %>% filter(units == "number_of_individuals")
+
+library(car)
+#Anova analysis
+dipteramodel <- lm(diptera.sum~predation_method, data = carnivore_number)
+anova(dipteramodel)
+summary(dipteramodel)
+
+#acarina as analysis 
+acarinamodel <- lm(acarina~predation_method, data = carnivore_number)
+anova(acarinamodel)
+
+#collembola analysis "Springtails"
+collembolamodel <- lm(collembola~predation_method, data = carnivore_number)
+anova(collembolamodel)
+
+#homoptera analysis " cicadas, aphids, leafhoppers, and other plant-feeding insects."
+homomodel <- lm(homoptera.sum~predation_method, data = carnivore_number)
+anova(homomodel)
