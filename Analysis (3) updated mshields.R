@@ -127,17 +127,19 @@ str(carnie_count)
 #### Fit diptera ###############################################################
 install.packages("Rcpp")
 library(Rcpp)
-fit_diptera <- glmer(diptera.sum ~ predation_method + (1|study) + (1|genus), 
+dip_noZeros <- filter(carnie_count, diptera.sum != 0)
+fit_diptera <- glmer(diptera.sum ~ predation_method + (1|genus), 
                      family = poisson(link="log"), 
-                     data = carnie_count)
+                     data = dip_noZeros)
 summary(fit_diptera)
 Anova(fit_diptera, type="III")
 emmeans(fit_diptera, pairwise ~ predation_method)
 
 #### Fit coleoptera ############################################################
+col_nozeros <- filter(carnie_count, coleoptera != 0)
 fit_coleoptera <- glmer(coleoptera ~ predation_method + (1|genus), 
                      family = poisson(link="log"), 
-                     data = carnie_count)
+                     data = col_nozeros)
 summary(fit_coleoptera)
 Anova(fit_coleoptera, type="III")
 emmeans(fit_coleoptera, pairwise ~ predation_method)
@@ -165,7 +167,7 @@ Anova(fit_formicidae_noZeros, type="III")
 emmeans(fit_formicidae_noZeros, pairwise ~ predation_method)
 
 
-
+########formicidae#######SIGNIFICANT!
 
 fit_formicidae <- glm(formicidae ~ predation_method, 
                         family = poisson(link="log"), 
@@ -176,12 +178,73 @@ Anova(fit_formicidae, type="III")
 emmeans(fit_formicidae, pairwise ~ predation_method)
 
 #### Fit hemiptera ############################################################
+hem_nozero <- filter(carnie_count, hemiptera != 0)
 fit_hemiptera <- glmer(hemiptera ~ predation_method + (1|genus), 
                         family = poisson(link="log"), 
-                        data = carnie_count)
+                        data = hem_nozero)
 summary(fit_hemiptera)
 Anova(fit_hemiptera, type="III")
 emmeans(fit_hemiptera, pairwise ~ predation_method)
+
+########acarina####### SIGNIFICANT!
+acarina_nozero <- filter(carnie_count, acarina != 0)
+fit_acarina <- glmer(acarina ~ predation_method + (1|genus), 
+                       family = poisson(link="log"), 
+                       data = acarina_nozero)
+summary(fit_acarina)
+Anova(fit_acarina, type="III")
+emmeans(fit_acarina, pairwise ~ predation_method)
+
+#####hymenoptera#########
+hymen_nozero <- filter(carnie_count, hymenoptera.not.formicidae !=0)
+fit_hymen <-glmer(hymenoptera.not.formicidae ~ predation_method + (1|genus),
+                  family = poisson(link= "log"),
+                  data = hymen_nozero)
+summary(fit_hymen)
+Anova(fit_hymen, type = "III")
+emmeans(fit_hymen, pairwise ~ predation_method)
+
+#######thysanoptera##### SIGNIFICANT!!!
+thy_nozero <- filter(carnie_count, thysanoptera !=0)
+fit_thy <-glmer(thysanoptera ~ predation_method + (1|genus),
+                  family = poisson(link= "log"),
+                  data = thy_nozero)
+summary(fit_thy)
+Anova(fit_thy, type = "III")
+emmeans(fit_thy, pairwise ~ predation_method)
+
+#########aranae#######
+aran_nozero <- filter(carnie_count, araneae !=0)
+fit_aran <-glmer(araneae ~ predation_method + (1|genus),
+                family = poisson(link= "log"),
+                data = aran_nozero)
+summary(fit_aran)
+Anova(fit_aran, type = "III")
+emmeans(fit_aran, pairwise ~ predation_method)
+
+######lepidoptera######SIGNIFICANT!!! 
+lepi_nozero <- filter(carnie_count, lepidoptera !=0)
+fit_lepi <-glmer(lepidoptera ~ predation_method + (1|genus),
+                 family = poisson(link= "log"),
+                 data = lepi_nozero)
+summary(fit_lepi)
+Anova(fit_lepi, type = "III")
+emmeans(fit_lepi, pairwise ~ predation_method)
+
+####plecoptera########## NO other data, only one count 
+
+######orthoptera#########SIGNIFICANT!!!!!!
+or_nozero <- filter(carnie_count, orthoptera !=0)
+fit_or <-glmer(orthoptera ~ predation_method + (1|genus),
+                 family = poisson(link= "log"),
+                 data = or_nozero)
+summary(fit_or)
+Anova(fit_or, type = "III")
+emmeans(fit_or, pairwise ~ predation_method)
+
+###### some of the other ones are single reports or less than three reports 
+######not sure if we want to analyze those really....!!!!!!
+
 
 library(plotrix)
 ### Try to get a barplot #####################################################
@@ -351,20 +414,8 @@ ggplot(Richness_Graph)+
            stat = "identity", position = "dodge")+
   geom_errorbar(aes(x = predation_method, ymin = MeanRichness - SE, ymax = MeanRichness + SE),
                 width = 0.2, position = position_dodge(12))+
-  labs(y = "Mean Richness of Prey Capture (Order)", x = "Predation Method", fill= " ")+
-  guides(fill="none")+
   theme_bw()
 
-fit_richness <- lm(Richness ~ predation_method,
-                     data = Richness)
-summary(fit_richness)
-plot(fit_richness)
-Anova(fit_richness, type="III")
-emmeans(fit_richness, pairwise ~ predation_method)
 
-fit_richness2 <- lm(Richness ~ genus, 
-                    data = Richness)
-plot(fit_richness2)
-summary(fit_richness2)
-Anova(fit_richness2, type="III")
-emmeans(fit_richness, pairwise ~ predation_method)
+
+
