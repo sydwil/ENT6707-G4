@@ -351,8 +351,20 @@ ggplot(Richness_Graph)+
            stat = "identity", position = "dodge")+
   geom_errorbar(aes(x = predation_method, ymin = MeanRichness - SE, ymax = MeanRichness + SE),
                 width = 0.2, position = position_dodge(12))+
+  labs(y = "Mean Richness of Prey Capture (Order)", x = "Predation Method", fill= " ")+
+  guides(fill="none")+
   theme_bw()
 
+fit_richness <- lm(Richness ~ predation_method,
+                     data = Richness)
+summary(fit_richness)
+plot(fit_richness)
+Anova(fit_richness, type="III")
+emmeans(fit_richness, pairwise ~ predation_method)
 
-
-
+fit_richness2 <- lm(Richness ~ genus, 
+                    data = Richness)
+plot(fit_richness2)
+summary(fit_richness2)
+Anova(fit_richness2, type="III")
+emmeans(fit_richness, pairwise ~ predation_method)
