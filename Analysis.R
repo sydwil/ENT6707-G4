@@ -134,6 +134,14 @@ summary(fit_diptera)
 Anova(fit_diptera, type="III")
 emmeans(fit_diptera, pairwise ~ predation_method)
 
+##model overdispersed, this gives a better AIC value
+FixDip <- glmer.nb(diptera.sum ~predation_method +(1|genus),
+                      data = carnie_count)
+summary(FixDip)
+Anova(FixDip, type="III")
+emmeans(FixDip, pairwise~predation_method)
+
+
 #### Fit coleoptera ############################################################
 fit_coleoptera <- glmer(coleoptera ~ predation_method + (1|genus), 
                      family = poisson(link="log"), 
@@ -143,6 +151,13 @@ Anova(fit_coleoptera, type="III")
 emmeans(fit_coleoptera, pairwise ~ predation_method)
 
 ranef(fit_coleoptera)
+
+   ##model overdispersed, this gives a better AIC value
+FixColeop <- glmer.nb(coleoptera ~predation_method +(1|genus),
+                      data = carnie_count)
+summary(FixColeop)
+emmeans(FixColeop, pairwise~predation_method)
+
 
 #### Fit formicidae ############################################################
 summary(carnie_count$formicidae)
@@ -164,7 +179,12 @@ summary(fit_formicidae_noZeros)
 Anova(fit_formicidae_noZeros, type="III")
 emmeans(fit_formicidae_noZeros, pairwise ~ predation_method)
 
-
+##model overdispersed, this gives a better AIC value
+FixForm <- glmer.nb(formicidae ~predation_method +(1|genus),
+                      data = formicidae_noZeros)
+summary(FixForm)
+Anova(FixForm, type)
+emmeans(FixForm, pairwise~predation_method)
 
 
 fit_formicidae <- glm(formicidae ~ predation_method, 
@@ -182,6 +202,47 @@ fit_hemiptera <- glmer(hemiptera ~ predation_method + (1|genus),
 summary(fit_hemiptera)
 Anova(fit_hemiptera, type="III")
 emmeans(fit_hemiptera, pairwise ~ predation_method)
+
+hemiNb <- glmer.nb(hemiptera ~predation_method +(1|genus),
+                  data = carnie_count)
+summary(hemiNb)
+Anova(hemiNb, type="III")
+emmeans(hemiNb, pairwise~predation_method)
+
+### Fit acarina ##################################################
+AcaNb <- glmer.nb(acarina ~predation_method +(1|genus),
+                    data = carnie_count)
+summary(AcaNb)
+Anova(AcaNb, type="III")
+emmeans(AcaNb, pairwise~predation_method)
+
+### Fit homoptera ##################################################
+HomNb <- glmer.nb(homoptera.sum ~predation_method +(1|genus),
+                  data = carnie_count)
+summary(HomNb)
+Anova(HomNb, type="III")
+emmeans(HomNb, pairwise~predation_method)
+
+### Fit Hymenoptera not formicidae ##################################################
+HymNb <- glmer.nb(hymenoptera.not.formicidae ~predation_method +(1|genus),
+                  data = carnie_count)
+summary(HymNb)
+Anova(HymNb, type="III")
+emmeans(HymNb, pairwise~predation_method)
+
+### Fit Hymenoptera not formicidae ##################################################
+HymNb <- glmer.nb(hymenoptera.not.formicidae ~predation_method +(1|genus),
+                  data = carnie_count)
+summary(HymNb)
+Anova(HymNb, type="III")
+emmeans(HymNb, pairwise~predation_method)
+
+### Fit lepidoptera ##################################################
+LepNb <- glmer.nb(lepidoptera ~predation_method +(1|genus),
+                  data = carnie_count)
+summary(LepNb)
+Anova(LepNb, type="III")
+emmeans(LepNb, pairwise~predation_method)
 
 library(plotrix)
 ### Try to get a barplot #####################################################
@@ -257,7 +318,7 @@ ggplot(carnie_count_graph)+
 
 carnie_count_less_means <- carnie_count %>% group_by(predation_method) %>%
   summarise(mean_diptera = round(mean(diptera.sum),2),
-            #mean_acarina = round(mean(acarina),2),
+            mean_acarina = round(mean(acarina),2),
             mean_hymenoptera.not.formicidae = round(mean(hymenoptera.not.formicidae),2),
             #mean_thysanoptera = round(mean(thysanoptera),2),
             mean_homoptera = round(mean(homoptera.sum),2),
@@ -272,7 +333,7 @@ carnie_count_less_means <- carnie_count %>% group_by(predation_method) %>%
 
 carnie_count_less_SE <- carnie_count %>% group_by(predation_method) %>%
   summarise(SE_diptera = round(std.error(diptera.sum),2),
-            #SE_acarina = round(std.error(acarina),2),
+            SE_acarina = round(std.error(acarina),2),
             SE_hymenoptera.not.formicidae = round(std.error(hymenoptera.not.formicidae),2),
             #SE_thysanoptera = round(std.error(thysanoptera),2),
             SE_homoptera = round(std.error(homoptera.sum),2),
@@ -307,11 +368,114 @@ testing21 <- carnie_count_less_SE %>%
 carnie_count_less_graph <- testing11
 carnie_count_less_graph$SE <- testing21$SE
 
-
-ggplot(carnie_count_less_graph, aes(x = predation_method, y = mean, fill = arthropod_group)) +
+pBarlabels <- c("Active trapping", "Pitcher", "Sticky Traps")
+p <- ggplot(carnie_count_less_graph, aes(x = predation_method, y = mean, fill = arthropod_group)) +
   geom_bar(stat = "identity", position = "dodge") + 
   geom_errorbar(aes(ymin = mean - SE, ymax = mean + SE),
-                position = "dodge") + theme_bw()
+                position = "dodge") + theme_bw()+
+  scale_fill_manual(name="Genus", 
+                    labels=c("Acarina","Coleoptera", "Diptera", "Formicidae", "Hemiptera", 
+                             "Homoptera", "Hymenoptere excluding Formicidae", "Lepidoptera"),
+                    values=c("#999999","#0072B2","#009E73","#D55E00","#E69F00","#56B4E9","#F0E442","#CC79A7"))+
+  scale_x_discrete(labels=pBarlabels)+
+  ylab("Average Prey Captured")+xlab("Predation Method")+
+  theme(
+     panel.background = element_rect(fill='transparent'),
+     plot.background = element_rect(fill='transparent', color=NA),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.border = element_blank(),
+    legend.background = element_rect(fill='transparent'),
+    legend.box.background = element_rect(fill='transparent')
+    )+
+  theme(axis.line = element_line (color = 'black'))
+
+ggsave('groupbarplot.png', p, bg='transparent')
+
+
+#### Graph to highlight lower volume captures (removing the big bars) 
+
+carnie_count_little <- carnie_count %>% group_by(predation_method) %>%
+  summarise(#mean_diptera = round(mean(diptera.sum),2),
+            mean_acarina = round(mean(acarina),2),
+            mean_hymenoptera.not.formicidae = round(mean(hymenoptera.not.formicidae),2),
+            mean_thysanoptera = round(mean(thysanoptera),2),
+            mean_homoptera = round(mean(homoptera.sum),2),
+            mean_orthoptera = round(mean(orthoptera),2),
+            #mean_coleoptera = round(mean(coleoptera),2),
+            #mean_araneae = round(mean(araneae),2),
+            mean_lepidoptera = round(mean(lepidoptera),2),
+            mean_hemiptera = round(mean(hemiptera),2))
+            #mean_plecoptera = round(mean(plecoptera),2),
+            #mean_formicidae = round(mean(formicidae),2))
+#mean_orthoptera = round(mean(orthoptera),2),)
+
+
+carnie_count_littleSE <- carnie_count %>% group_by(predation_method) %>%
+  summarise(#SE_diptera = round(std.error(diptera.sum),2),
+            SE_acarina = round(std.error(acarina),2),
+            SE_hymenoptera.not.formicidae = round(std.error(hymenoptera.not.formicidae),2),
+            SE_thysanoptera = round(std.error(thysanoptera),2),
+            SE_homoptera = round(std.error(homoptera.sum),2),
+            SE_orthoptera = round(std.error(orthoptera),2),
+            #SE_coleoptera = round(std.error(coleoptera),2),
+            #SE_araneae = round(std.error(araneae),2),
+            SE_lepidoptera = round(std.error(lepidoptera),2),
+            SE_hemiptera = round(std.error(hemiptera),2))
+            #SE_plecoptera = round(std.error(plecoptera),2),
+            #SE_formicidae = round(std.error(formicidae),2))
+#SE_orthoptera = round(std.error(orthoptera),2),)
+
+str(as.data.frame(carnie_count_littleSE))
+str(as.data.frame(carnie_count_little))
+
+
+testing11 <- carnie_count_little %>%
+  pivot_longer(
+    cols = starts_with("mean"),
+    names_to = "arthropod_group",
+    names_prefix = "mean_",
+    values_to = "mean") %>%
+  as.data.frame()
+
+testing21 <- carnie_count_littleSE %>%
+  pivot_longer(
+    cols = starts_with("SE"),
+    names_to = "arthropod_group",
+    names_prefix = "SE_",
+    values_to = "SE") %>% 
+  as.data.frame()
+
+carnie_count_less_graph <- testing11
+carnie_count_less_graph$SE <- testing21$SE
+
+pBarlabels <- c("Active trapping", "Pitcher", "Sticky Traps")
+B <- ggplot(carnie_count_less_graph, aes(x = predation_method, y = mean, fill = arthropod_group)) +
+  geom_bar(stat = "identity", position = "dodge") + 
+  geom_errorbar(aes(ymin = mean - SE, ymax = mean + SE),
+                position = "dodge") + theme_bw()+
+  scale_fill_manual(name="Genus", 
+                    labels=c("Acarina","Coleoptera", "Diptera", "Formicidae", "Hemiptera", 
+                             "Homoptera", "Hymenoptere excluding Formicidae", "Lepidoptera"),
+                    values=c("#999999","#0072B2","#009E73","#D55E00","#E69F00","#56B4E9","#F0E442","#CC79A7"))+
+  scale_x_discrete(labels=pBarlabels)+
+  ylab("Average Prey Captured")+xlab("Predation Method")+
+  theme(
+    panel.background = element_rect(fill='transparent'),
+    plot.background = element_rect(fill='transparent', color=NA),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.border = element_blank(),
+    legend.background = element_rect(fill='transparent'),
+    legend.box.background = element_rect(fill='transparent')
+  )+
+  theme(axis.line = element_line (color = 'black'))
+
+ggsave('groupbarplot.png', p, bg='transparent')
+
+
+
+
 
 
 #broken 
