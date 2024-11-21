@@ -471,7 +471,7 @@ B <- ggplot(carnie_count_less_graph, aes(x = predation_method, y = mean, fill = 
   )+
   theme(axis.line = element_line (color = 'black'))
 
-ggsave('groupbarplot.png', p, bg='transparent')
+ggsave('groupbarplot.png', B, bg='transparent')
 
 
 
@@ -510,14 +510,27 @@ str(as.data.frame(Richness_means))
 Richness_Graph <- Richness_means
 Richness_Graph$SE <- Richness_SE$SERichness
 
-ggplot(Richness_Graph)+
+R <-ggplot(Richness_Graph)+
   geom_bar(aes(x = predation_method, y = MeanRichness, fill = predation_method), 
            stat = "identity", position = "dodge")+
   geom_errorbar(aes(x = predation_method, ymin = MeanRichness - SE, ymax = MeanRichness + SE),
                 width = 0.2, position = position_dodge(12))+
   labs(y = "Mean Richness of Prey Capture (Order)", x = "Predation Method", fill= " ")+
+  scale_fill_brewer(palette="Set1")+
   guides(fill="none")+
-  theme_bw()
+  theme(
+    panel.background = element_rect(fill='transparent'),
+    plot.background = element_rect(fill='transparent', color=NA),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.border = element_blank(),
+    legend.background = element_rect(fill='transparent'),
+    legend.box.background = element_rect(fill='transparent')
+  )+
+  theme(axis.line = element_line (color = 'black'))
+ggsave('Richnessbarplot.png', R, bg='transparent')
+
+
 
 fit_richness <- lm(Richness ~ predation_method,
                      data = Richness)
