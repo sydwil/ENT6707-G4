@@ -516,7 +516,8 @@ R <-ggplot(Richness_Graph)+
   geom_errorbar(aes(x = predation_method, ymin = MeanRichness - SE, ymax = MeanRichness + SE),
                 width = 0.2, position = position_dodge(12))+
   labs(y = "Mean Richness of Prey Capture (Order)", x = "Predation Method", fill= " ")+
-  scale_fill_brewer(palette="Set1")+
+  #scale_fill_(palette="Set1")+
+  scale_fill_manual(values = c("#33638DFF","#3CBB7FFF","#B8DE29FF"))+
   guides(fill="none")+
   theme(
     panel.background = element_rect(fill='transparent'),
@@ -527,7 +528,9 @@ R <-ggplot(Richness_Graph)+
     legend.background = element_rect(fill='transparent'),
     legend.box.background = element_rect(fill='transparent')
   )+
-  theme(axis.line = element_line (color = 'black'))
+  scale_x_discrete(labels = c("Active trapping", "Pitchers", "Sticky traps"))+
+  theme(axis.line = element_line (color = 'black'),
+        axis.text=element_text(size=12))
 ggsave('Richnessbarplot.png', R, bg='transparent')
 
 

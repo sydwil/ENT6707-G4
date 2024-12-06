@@ -4,6 +4,7 @@ library(lme4)
 library(car)
 library(emmeans)
 library(plotrix)
+library(ggpubr)
 
 #Let's look at the data first
 carnie_count <-  carnivore %>% filter(units == "number_of_individuals")
@@ -69,9 +70,21 @@ testing <- carnie_count %>%
 testing_no_zeros <- filter(testing, count != 0)
 
 ggplot(testing_no_zeros)+
-  geom_jitter(aes(x = predation_method, y = count,  col = arthropod_group))+
+  geom_jitter(aes(x = predation_method, y = count, col = arthropod_group,
+                  shape = arthropod_group))+
   xlab("Predation method") +
   ylab("Catch count") +
+  scale_shape_manual(values = c(15, 16, 17, 18, 15, 16, 17, 18, 15, 16),
+                     name = "", labels = c("Acarina", "Araneae",
+                                           "Coleoptera", "Collembola",
+                                           "Diptera", "Formicidae", "Homoptera",
+                                           "Hemiptera", "Hymenoptera*",
+                                           "Lepidoptera"))+
+  # scale_shape_discrete(name = "", labels = c("Acarina", "Araneae",
+  #                      "Coleoptera", "Collembola",
+  #                      "Diptera", "Formicidae", "Homoptera",
+  #                      "Hemiptera", "Hymenoptera*",
+  #                      "Lepidoptera"))+
   scale_color_discrete(name = "", labels = c("Acarina", "Araneae",
                                            "Coleoptera", "Collembola",
                                            "Diptera", "Formicidae", "Homoptera",
@@ -79,6 +92,39 @@ ggplot(testing_no_zeros)+
                                            "Lepidoptera"))+
   scale_x_discrete(labels = c("Active trapping", "Pitchers", "Sticky traps"))+
 theme_bw()
+
+
+#### Figure 1 Remake ###########################################################
+figure_1A <- ggplot(testing_no_zeros)+
+  geom_jitter(aes(x = predation_method, y = count, fill = arthropod_group,
+                  shape = arthropod_group, size = arthropod_group))+
+  xlab("Predation method") +
+  ylab("Catch count") +
+  scale_shape_manual(values = c(21, 22, 23, 24, 21, 22, 23, 24, 21, 22),
+                     name = "", labels = c("Acarina", "Araneae",
+                                           "Coleoptera", "Collembola",
+                                           "Diptera", "Formicidae", "Homoptera",
+                                           "Hemiptera", "Hymenoptera*",
+                                           "Lepidoptera"))+
+  scale_fill_manual(name = "", labels = c("Acarina", "Araneae",
+                                             "Coleoptera", "Collembola",
+                                             "Diptera", "Formicidae", "Homoptera",
+                                             "Hemiptera", "Hymenoptera*",
+                                             "Lepidoptera"),
+                    values = c("black", "#440154FF", "#453781FF", "#33638DFF","#238A8DFF",
+                               "#20A387FF", "#3CBB7FFF", "#73D055FF", "#B8DE29FF", "#DCE319FF"))+
+  scale_size_manual(name = "", labels = c("Acarina", "Araneae",
+                                         "Coleoptera", "Collembola",
+                                         "Diptera", "Formicidae", "Homoptera",
+                                         "Hemiptera", "Hymenoptera*",
+                                         "Lepidoptera"),
+                   values = c(2, 1.5, 1.5, 1.5, 2, 1.5, 1.5, 1.5, 2, 1.5))+
+  scale_x_discrete(labels = c("Active trapping", "Pitchers", "Sticky traps"))+
+  theme_bw()
+
+#"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
 
 #run this without the renamed legend just to make sure all the colors still 
 # match
@@ -156,19 +202,26 @@ carnie_count_less_graph <- testing11
 carnie_count_less_graph$SE <- testing21$SE
 
 
-ggplot(carnie_count_less_graph, aes(x = predation_method, y = mean, fill = arthropod_group)) +
+Figure_1B <- ggplot(carnie_count_less_graph, aes(x = predation_method, y = mean, fill = arthropod_group)) +
   geom_bar(stat = "identity", position = "dodge", col = "black") + 
   geom_errorbar(aes(ymin = mean - SE, ymax = mean + SE),
-                position = "dodge") +
+                position = "dodge", color = "gray") +
   xlab("Predation method") +
   ylab("Mean catch") +
-  scale_fill_discrete(name = "", labels = c("Acarina", "Araneae",
+  scale_fill_manual(name = "", labels = c("Acarina", "Araneae",
                                              "Coleoptera", "Collembola",
                                              "Diptera", "Formicidae", "Homoptera",
                                              "Hemiptera", "Hymenoptera*",
-                                             "Lepidoptera"))+
+                                             "Lepidoptera"),
+                      values = c("black", "#440154FF", "#453781FF", "#33638DFF","#238A8DFF",
+                                 "#20A387FF", "#3CBB7FFF", "#73D055FF", "#B8DE29FF", "#DCE319FF"))+
   scale_x_discrete(labels = c("Active trapping", "Pitchers", "Sticky traps"))+
   theme_bw()
+
+
+### New Figure 1 (combined old 1 and 2) ########################################
+ggarrange(figure_1A, Figure_1B, common.legend = TRUE, legend = "right",
+          labels = c("A", "B"), ncol = 1, nrow = 2)
 
 # used PDF preview of 5.88 x 4 inches to get image for document
 
